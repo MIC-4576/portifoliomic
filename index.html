@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MIC - Michele Interações e Criações: Criatividade que inova, soluções que marcam. Sua parceira em desenvolvimento web, marketing digital, análise de dados e consultoria.">
+    <meta name="keywords" content="MIC, Michele Interações e Criações, marketing digital, desenvolvimento web, dashboards, análise de dados, logos, web design, design gráfico, inteligência artificial, CHELIA, criatividade, soluções digitais">
+    <meta name="author" content="Michele Oliveira de Morais">
+    <title>MIC - Michele Interações e Criações</title>
+    <link rel="icon" href="logo_mic.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            line-height: 1.6;
+            /* NOVO: Fundo com imagem de circuito */
+            background-image: url('imagens/fundo_circuito.jpg'); /* Caminho para sua imagem */
+            background-repeat: no-repeat; /* Não repete a imagem */
+            background-size: cover; /* A imagem cobre toda a área do fundo */
+            background-attachment: fixed; /* Mantém o fundo fixo durante a rolagem */
+            background-position: center center; /* Centraliza a imagem */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #4A00B8;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        p {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #007bff, #8a2be2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+        /* As seções pares não terão mais um background-color diferente,
+           para que a imagem de fundo do body seja visível.
+           Se precisar de um fundo para as seções, podemos adicionar um
+           background-color com opacidade para manter a visibilidade do circuito. */
+        /* section:nth-of-type(even) {
+            background-color: #f8f8f8;
+        } */
+
+        /* Navegação */
+        .navbar {
+            background-color: white;
+            padding: 5px 20px; /* MODIFICADO: Reduzido o padding vertical */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            height: 120px; /* MODIFICADO: Reduzida a altura da logo */
+            width: auto;
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-left: 30px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #4A00B8;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            color: #007bff;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background-color: #4A00B8;
+            margin-bottom: 4px;
+            border-radius: 2px;
+        }
+
+        /* Seção Hero */
+        .hero-section {
+            background: linear-gradient(135deg, #007bff, #8a2be2);
+            color: white;
+            text-align: center;
+            padding: 120px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .hero-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 40px;
+            color: white;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Seção Sobre Nós Detalhado */
+        .about-us-detailed-section {
+            padding: 80px 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade para ver o circuito */
+        }
+        .about-us-detailed-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+        .about-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .about-card {
+            background-color: #f8f8f8;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+        .about-card img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #8a2be2;
+        }
+        .about-card .logo-image {
+            border-radius: 10px;
+            border: none;
+            width: 200px;
+            height: auto;
+        }
+        .about-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #4A00B8;
+        }
+        .about-card p {
+            font-size: 1em;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Seção Valores */
+        .values-section {
+            background-color: rgba(248, 248, 248, 0.9); /* Fundo com opacidade */
+            padding: 80px 20px;
+        }
+        .values-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .value-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .value-item:hover {
+            transform: translateY(-5px);
+        }
+        .value-item i {
+            font-size: 2.5em;
+            color: #8a2be2;
+            margin-bottom: 15px;
+        }
+
+        /* Seção Serviços */
+        #servicos {
+            padding: 80px 20px;
+            background-color: rgba(255, 255, 255, 0.0); /* Manter transparente para ver o fundo do body */
+        }
+        #servicos h2 {
+            color: white; /* Define a cor do texto para branco */
+            margin-bottom: 50px;
+        }
+        #servicos .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        #servicos .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid transparent;
+            border-image: linear-gradient(90deg, #007bff, #8a2be2);
+            border-image-slice: 1;
+        }
+        #servicos .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        #servicos .service-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #8a2be2;
+            background: linear-gradient(45deg, #007bff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        #servicos .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+            text-align: left;
+        }
+        #servicos .service-card p {
+            font-size: 0.95em;
+            color: #666;
+            text-align: left;
+        }
+
+        /* Seção Portfólio */
+        #portfolio {
+            background-color: rgba(255, 255, 255, 0.0); /* Manter transparente para ver o fundo do body */
+            padding: 80px 20px;
+        }
+
+        #portfolio h2 {
+            color: white; /* Define a cor do texto para branco */
+            margin-bottom: 50px; /* Manter espaçamento, se desejar */
+            /* Outras propriedades existentes para h2 no portfolio podem permanecer aqui */
+        }
+
+        #portfolio .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        #portfolio .portfolio-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            position: relative;
+            display: flex; /* Para alinhar ícone e texto */
+            flex-direction: column; /* Ícone em cima, texto em baixo */
+            align-items: center; /* Centraliza ícone e texto */
+            padding: 20px; /* Adiciona padding ao item do portfólio */
+        }
+        #portfolio .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        #portfolio .portfolio-item .portfolio-icon { /* Estilo para os novos ícones do portfólio */
+            font-size: 5em; /* Ícones maiores */
+            color: #8a2be2;
+            background: linear-gradient(45deg, #007bff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .portfolio-item .details {
+            padding: 0px; /* Ajustado para 0, já que o padding está no item */
+            text-align: center; /* Centraliza o texto dentro dos detalhes */
+        }
+        .portfolio-item h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            text-align: center; /* Centraliza o título */
+        }
+        .portfolio-item .category {
+            font-size: 0.9em;
+            color: #8a2be2;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center; /* Centraliza a categoria */
+        }
+        .portfolio-item p {
+            text-align: center; /* Centraliza o parágrafo */
+        }
+
+        /* Nova Seção de Feedback (Sugestões, Elogios, Críticas) */
+        .feedback-section {
+            background: linear-gradient(135deg, #007bff, #8a2be2);
+            color: white;
+            padding: 80px 20px;
+        }
+        .feedback-section h2 {
+            color: white;
+            margin-bottom: 50px;
+        }
+        .feedback-form {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .feedback-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        .feedback-form input[type="text"],
+        .feedback-form input[type="email"],
+        .feedback-form textarea,
+        .feedback-form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .feedback-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .feedback-form .btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* Seção Contato */
+        #contato {
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo com opacidade */
+            padding: 80px 20px;
+        }
+        #contato .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        #contato .contact-item {
+            flex: 1 1 300px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+        #contato .contact-item i {
+            font-size: 3em;
+            color: #8a2be2;
+            margin-bottom: 20px;
+        }
+        #contato .contact-item h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #4A00B8;
+        }
+        #contato .contact-item p,
+        #contato .contact-item a {
+            font-size: 1.1em;
+            color: #555;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        #contato .contact-item a:hover {
+            color: #007bff;
+        }
+        #contato .qrcode-container {
+            margin-top: 20px;
+            display: flex; /* Para alinhar imagem e texto */
+            flex-direction: column;
+            align-items: center; /* Centraliza a imagem e o texto */
+        }
+        #contato .qrcode-container img {
+            width: 200px; /* Aumentado para melhor escaneamento */
+            height: 200px; /* Aumentado para melhor escaneamento */
+            object-fit: contain;
+            border: none; /* Removida a borda */
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        #contato .qrcode-container img:hover {
+            transform: scale(1.05); /* Pequeno zoom ao passar o mouse */
+        }
+        #contato .qrcode-container a { /* Estilo para o link do QR Code */
+            display: block; /* Para que o link ocupe todo o espaço da imagem */
+            line-height: 0; /* Remove espaço extra de linha */
+        }
+        #contato .social-icons a {
+            font-size: 2em;
+            color: #4A00B8;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        #contato .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Botão Voltar ao Topo */
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(90deg, #007bff, #8a2be2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: opacity 0.3s ease;
+        }
+        #back-to-top:hover {
+            opacity: 0.8;
+        }
+
+        /* Rodapé */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .footer .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+        .footer .social-links a:hover {
+            color: #007bff;
+        }
+        .footer p {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        /* Estilos para a nova seção de Missão e Visão */
+        .mission-vision-section {
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo com opacidade */
+            padding: 80px 20px;
+        }
+        .mission-vision-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .mission-vision-item {
+            background-color: #f8f8f8;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .mission-vision-item:hover {
+            transform: translateY(-5px);
+        }
+        .mission-vision-item i {
+            font-size: 3em;
+            color: #8a2be2;
+            margin-bottom: 20px;
+        }
+        .mission-vision-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #4A00B8;
+        }
+        .mission-vision-item p {
+            font-size: 1em;
+            color: #555;
+            text-align: center;
+        }
+
+        /* ANIMAÇÕES DE ÍCONES */
+
+        /* Pulsar */
+        .icon-pulsate {
+            animation: pulsate 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulsate {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* Girar */
+        .icon-spin {
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Deslizar para cima e para baixo */
+        .icon-slide {
+            animation: slideUpDown 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes slideUpDown {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        /* Aumentar suavemente no hover */
+        .icon-grow {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .icon-grow:hover {
+            transform: scale(1.2);
+        }
+
+        /* Balançar */
+        .icon-swing {
+            animation: swing 1s ease-in-out infinite alternate;
+            transform-origin: center bottom;
+        }
+
+        @keyframes swing {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: white;
+                position: absolute;
+                top: 90px;
+                left: 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+            .navbar ul.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .hero-section h2 {
+                font-size: 1.2em;
+            }
+            .about-cards-grid, .values-grid, #servicos .service-cards, #portfolio .portfolio-grid, #contato .contact-grid, .mission-vision-grid {
+                grid-template-columns: 1fr;
+            }
+            #contato .contact-item {
+                flex: 1 1 100%;
+            }
+            #contato .qrcode-container img {
+                width: 180px; /* Levemente menor para mobile */
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#hero"><img src="logo_mic.jpeg" alt="MIC Logo" class="logo"></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#about-us-detailed">Sobre Nós</a></li>
+                <li><a href="#mission-vision">Missão e Visão</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#feedback">Seu Feedback</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <h1>MIC - CRIATIVIDADE QUE INOVA. SOLUÇÕES QUE MARCAM.</h1>
+                <h2>Somos a MIC - Michele Interações e Criações. Unimos a visão estratégica de nossa CEO, Michele Oliveira de Morais, com a precisão da inteligência artificial de CHELIA, para entregar projetos digitais únicos, criados do zero para você.</h2>
+                <a href="#portfolio" class="btn">Veja nossos projetos</a>
+            </div>
+        </section>
+
+        <section id="about-us-detailed" class="about-us-detailed-section">
+            <div class="container">
+                <h2>Conheça a MIC: Nossa Essência e Equipe</h2>
+                <div class="about-cards-grid">
+                    <div class="about-card">
+                        <img src="logo_mic.jpeg" alt="Michele Interações e Criações Logo" class="logo-image">
+                        <h3>Michele Interações e Criações (MIC)</h3>
+                        <p>A MIC é uma empresa digital e criativa que atua online, especializada em soluções personalizadas "do zero" para empresas e indivíduos.</p>
+                    </div>
+                    <div class="about-card">
+                        <img src="michele_ceo.jpg" alt="Michele Oliveira de Morais - CEO MIC">
+                        <h3>Michele Oliveira de Morais (CEO)</h3>
+                        <p>Michele é a mente criativa, CEO e diretora geral da MIC. Com formação em Pedagogia e vasta experiência em marketing, design e análise de dados, ela é a estrategista e a responsável pela visão e decisão final dos projetos. Hoje, ela se consolida como uma gestora de IA, aprofundando-se cada vez mais nesse campo.</p>
+                    </div>
+                    <div class="about-card">
+                        <img src="chelia_ia_azul.jpeg" alt="CHELIA - Gerente / Auxiliar de IA">
+                        <h3>CHELIA (Gerente / Auxiliar de IA)</h3>
+                        <p>CHELIA é a parceira digital multifuncional que auxilia Michele em diversas tarefas, processando informações, gerando ideias e executando trabalhos sob direção humana. Possui habilidades em programação, análise, design e otimização de perfis em LinkedIn/Instagram.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission-vision" class="mission-vision-section">
+            <div class="container">
+                <h2>Nossa Missão e Visão</h2>
+                <div class="mission-vision-grid">
+                    <div class="mission-vision-item">
+                        <i class="fas fa-bullseye icon-pulsate"></i>
+                        <h3>Missão</h3>
+                        <p>Oferecer um serviço de qualidade e quantidade, pronto para qualquer ocasião e especialidade, atendendo às necessidades de personalização e criação digital de empresas e indivíduos.</p>
+                    </div>
+                    <div class="mission-vision-item">
+                        <i class="fas fa-eye icon-pulsate"></i>
+                        <h3>Visão</h3>
+                        <p>Ser uma marca em constante ampliação e crescimento, buscando especialização contínua e novas ideias, mantendo a excelência (qualidade e quantidade), respeitando limites e comprometida com o aprendizado constante para levar nossa marca cada vez mais longe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="valores" class="values-section">
+            <div class="container">
+                <h2>Nossos Valores</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <i class="fas fa-gem icon-pulsate"></i>
+                        <h3>Qualidade</h3>
+                        <p>Entregamos soluções de alto padrão que superam as expectativas dos clientes.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-hands-helping icon-pulsate"></i>
+                        <h3>Transparência</h3>
+                        <p>Mantemos comunicação clara e honesta em todas as etapas do projeto.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-balance-scale icon-pulsate"></i>
+                        <h3>Ética</h3>
+                        <p>Agimos com integridade e responsabilidade em todas as nossas ações.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-tachometer-alt icon-pulsate"></i>
+                        <h3>Eficiência</h3>
+                        <p>Otimizamos processos para entregar resultados rápidos e eficazes.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-handshake icon-pulsate"></i>
+                        <h3>Compromisso</h3>
+                        <p>Dedicação total para alcançar os objetivos e a satisfação do cliente.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-lightbulb icon-pulsate"></i>
+                        <h3>Honestidade</h3>
+                        <p>Fundamentamos nossas relações na verdade e na confiança mútua.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="services-section">
+            <div class="container">
+                <h2>Soluções completas para sua marca brilhar no digital.</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <i class="fas fa-code icon icon-spin"></i>
+                        <h3>Desenvolvimento Web & Sistemas</h3>
+                        <p>Personalização e criação de websites. Personalização e criação de sistemas, alinhados com a logo, cores, objetivos e estilo do cliente. Implementação de soluções web com foco em usabilidade e experiência do usuário (UX/UI), aplicando princípios avançados de web design.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-pencil-ruler icon icon-spin"></i>
+                        <h3>Marketing Digital & Design</h3>
+                        <p>Marketing digital geral, incluindo estratégias de SEO (Search Engine Optimization), SEM (Search Engine Marketing), e-mail marketing, e automação. Criação de banners, imagens e outras peças visuais personalizadas, com expertise em design gráfico para diversas plataformas e finalidades. Criação de logotipos e slogans. Desenvolvimento e otimização de perfis profissionais e corporativos no LinkedIn e Instagram, focando em branding pessoal/corporativo, engajamento e geração de leads.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-chart-line icon icon-spin"></i>
+                        <h3>Dados & Análise de Negócios</h3>
+                        <p>Criação e atuação em dashboards para empresas. Análise de dados. Elaboração de relatórios financeiros. Geração de soluções rápidas e decisivas para empresas baseadas em análise, incorporando benchmarks de mercado e tendências setoriais para insights ainda mais precisos.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-file-alt icon icon-spin"></i>
+                        <h3>Conteúdo e Escrita</h3>
+                        <p>Produção de textos personalizados (histórias, cartas, recados, artigos). Relatórios, planejamentos, orçamentos, planilhas. Criação de conteúdo estratégico e pedagógico, incluindo materiais didáticos, roteiros de treinamento e comunicação interna/externa focada em aprendizado e desenvolvimento.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-lightbulb icon icon-spin"></i>
+                        <h3>Consultoria Estratégica e Soluções Tecnológicas</h3>
+                        <p>Consultoria geral em criatividade e soluções tecnológicas/digitais. Consultoria especializada em estratégias de Recursos Humanos (RH) e Departamento Pessoal (DP), auxiliando na otimização de processos, comunicação interna e desenvolvimento de equipe. Consultoria pedagógica para empresas e indivíduos, focada em metodologias de ensino, desenvolvimento de programas educacionais e design instrucional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <h2>Nossos Projetos: Criatividade em ação, resultados que falam.</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <i class="fas fa-chart-bar portfolio-icon icon-slide"></i>
+                        <div class="details">
+                            <h3>Dashboard de Performance Financeira Exclusivo</h3>
+                            <p class="category">Análise de Dados & BI</p>
+                            <p>Desenvolvimento de dashboard interativo para análise financeira, proporcionando insights claros para decisões estratégicas. Totalmente personalizado às necessidades do cliente.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <i class="fas fa-signature portfolio-icon icon-slide"></i>
+                        <div class="details">
+                            <h3>Criação de Logo e Identidade Visual Completa</h3>
+                            <p class="category">Marketing Digital & Design</p>
+                            <p>Desde o conceito até a entrega final, criamos uma logo moderna e memorável, com manual de marca que reflete a essência do negócio do cliente.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <i class="fas fa-pencil-alt portfolio-icon icon-slide"></i>
+                        <div class="details">
+                            <h3>Sistema Personalizado de Gestão de RH/DP</h3>
+                            <p class="category">Desenvolvimento de Sistemas & Consultoria</p>
+                            <p>Sistema web sob medida para otimizar processos de Recursos Humanos e Departamento Pessoal, integrando funcionalidades de gestão com as necessidades específicas da empresa.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <i class="fas fa-laptop portfolio-icon icon-slide"></i>
+                        <div class="details">
+                            <h3>Campanha de Instagram Otimizada para Engajamento</h3>
+                            <p class="category">Marketing Digital & Design</p>
+                            <p>Desenvolvimento e execução de uma campanha completa no Instagram, focada em branding pessoal/corporativo e engajamento, utilizando posts e stories personalizados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback" class="feedback-section">
+            <div class="container">
+                <h2>Envie seu Feedback</h2>
+                <p>Sua opinião é muito importante para nós! Ajude-nos a aprimorar nossos serviços.</p>
+                <div class="feedback-form">
+                    <form action="YOUR_FORM_ENDPOINT_HERE" method="POST">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email">
+
+                        <label for="tipo-feedback">Tipo de Feedback:</label>
+                        <select id="tipo-feedback" name="tipo_feedback" required>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="elogio">Elogio</option>
+                            <option value="critica">Crítica</option>
+                        </select>
+
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" required></textarea>
+
+                        <button type="submit" class="btn">Enviar Feedback</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact-section">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <p>Estamos prontos para transformar suas ideias em realidade digital.</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt icon-grow"></i>
+                        <h3>Telefone</h3>
+                        <p>(91) 9 8253-7776</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope icon-grow"></i>
+                        <h3>Email</h3>
+                        <a href="mailto:mic.contatoesuporte@gmail.com">mic.contatoesuporte@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp icon-grow"></i>
+                        <h3>WhatsApp</h3>
+                        <div class="qrcode-container">
+                            <a href="https://wa.me/5591982537776" target="_blank">
+                                <img src="qrcode_whatsapp.jpeg" alt="QR Code WhatsApp Michele Oliveira">
+                            </a>
+                            <p>Escaneie ou clique para conversar com Michele Oliveira.</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram icon-grow"></i>
+                        <h3>Instagram</h3>
+                        <a href="https://www.instagram.com/mic_interacoes_e_criacoes/" target="_blank">@mic_interacoes_e_criacoes</a>
+                        <div class="qrcode-container">
+                            <a href="https://www.instagram.com/mic_interacoes_e_criacoes/" target="_blank">
+                                <img src="qrcode_instagram.jpeg" alt="QR Code Instagram MIC">
+                            </a>
+                            <p>Siga-nos para mais inspirações!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button id="back-to-top" title="Voltar ao Topo">
+        <i class="fas fa-arrow-up icon-swing"></i>
+    </button>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 MIC - Michele Interações e Criações. Todos os direitos reservados. MIC - CRIATIVIDADE QUE INOVA. SOLUÇÕES QUE MARCAM.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/mic_interacoes_e_criacoes/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para os links da navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                const navLinks = document.getElementById('nav-links');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Botão Voltar ao Topo
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Menu mobile toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
